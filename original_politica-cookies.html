@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Cookies | Go Wedding Planner</title>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/XfLJghyC/Go.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/XfLJghyC/Go.png">
+    <meta name="msapplication-TileImage" content="https://i.ibb.co/XfLJghyC/Go.png">
+
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://goweddingplanner.com/politica-cookies" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilos para acordeón Menu Movil */
+        details>summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details[open] summary~* {
+            animation: sweep .5s ease-in-out;
+        }
+
+        @keyframes sweep {
+            0% {
+                opacity: 0;
+                margin-top: -10px
+            }
+
+            100% {
+                opacity: 1;
+                margin-top: 0px
+            }
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Menú Móvil */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        #mobile-menu.open {
+            max-height: 100vh;
+            opacity: 1;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900 font-light flex flex-col min-h-screen">
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='/'">
+                    <img src="https://i.ibb.co/XfLJghyC/Go.png" alt="Logo Go Wedding Planner"
+                        class="h-10 md:h-12 w-auto">
+                    <div class="text-lg md:text-xl font-bold tracking-widest uppercase truncate block">
+                        GO WEDDING <span class="text-rose-500">PLANNER</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex gap-6 lg:gap-8 text-xs font-bold tracking-widest uppercase items-center">
+                    <a href="/" class="hover:text-rose-500 transition">Inicio</a>
+                    <a href="/servicios" class="hover:text-rose-500 transition">Servicios</a>
+                    <a href="/portfolio" class="hover:text-rose-500 transition">Portfolio</a>
+                    <a href="/sobre-nosotros" class="hover:text-rose-500 transition">Sobre Nosotros</a>
+                    <a href="/contacto" class="hover:text-rose-500 transition">Contacto</a>
+
+                    <!-- Dropdown Dónde Trabajamos -->
+                    <div class="relative dropdown group">
+                        <button class="text-rose-500 transition flex items-center gap-1 focus:outline-none uppercase">
+                            Dónde Trabajamos <i class="fas fa-chevron-down text-[10px]"></i>
+                        </button>
+                        <div
+                            class="dropdown-menu absolute hidden pt-2 w-48 bg-white border border-stone-100 shadow-xl rounded-sm z-50 -left-10">
+                            <a href="/bodas-alcorcon"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Alcorcón</a>
+                            <a href="/bodas-arroyomolinos"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Arroyomolinos</a>
+                            <a href="/bodas-fuenlabrada"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Fuenlabrada</a>
+                            <a href="/bodas-getafe"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Getafe</a>
+                            <a href="/bodas-leganes"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Leganés</a>
+                            <a href="/bodas-mostoles"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Móstoles</a>
+                            <a href="/bodas-navalcarnero"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Navalcarnero</a>
+                            <a href="/bodas-villaviciosa"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Villaviciosa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hamburger Button -->
+                <button class="md:hidden text-2xl text-stone-800 focus:outline-none p-2" onclick="toggleMenu()"
+                    aria-label="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="md:hidden flex flex-col gap-0 mt-2 text-center text-sm uppercase tracking-widest bg-white border-t border-stone-100 shadow-lg overflow-y-auto max-h-[80vh]">
+                <a href="/" class="block py-4 border-b border-stone-50 hover:text-rose-500">Inicio</a>
+                <a href="/servicios" class="block py-4 border-b border-stone-50 hover:text-rose-500">Servicios</a>
+                <a href="/portfolio" class="block py-4 border-b border-stone-50 hover:text-rose-500">Portfolio</a>
+                <a href="/sobre-nosotros" class="block py-4 border-b border-stone-50 hover:text-rose-500">Sobre
+                    Nosotros</a>
+                <a href="/contacto" class="block py-4 border-b border-stone-50 hover:text-rose-500">Contacto</a>
+
+                <!-- Mobile Locations Collapsible -->
+                <details class="group border-b border-stone-50">
+                    <summary
+                        class="py-4 hover:text-rose-500 cursor-pointer list-none flex justify-center items-center gap-2">
+                        Dónde Trabajamos <i
+                            class="fas fa-chevron-down text-xs transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="bg-stone-50 py-2">
+                        <a href="/bodas-alcorcon" class="block py-2 text-xs text-stone-500">Alcorcón</a>
+                        <a href="/bodas-arroyomolinos" class="block py-2 text-xs text-stone-500">Arroyomolinos</a>
+                        <a href="/bodas-fuenlabrada" class="block py-2 text-xs text-stone-500">Fuenlabrada</a>
+                        <a href="/bodas-getafe" class="block py-2 text-xs text-stone-500">Getafe</a>
+                        <a href="/bodas-leganes" class="block py-2 text-xs text-stone-500">Leganés</a>
+                        <a href="/bodas-mostoles" class="block py-2 text-xs text-stone-500">Móstoles</a>
+                        <a href="/bodas-navalcarnero" class="block py-2 text-xs text-stone-500">Navalcarnero</a>
+                        <a href="/bodas-villaviciosa" class="block py-2 text-xs text-stone-500">Villaviciosa</a>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="pt-32 pb-20 px-6 flex-grow">
+        <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 shadow-xl border-t-4 border-stone-200">
+            <h1 class="text-3xl font-serif italic mb-8 text-center">Política de Cookies</h1>
+            <div class="space-y-6 text-sm leading-relaxed text-stone-600 text-justify">
+                <p>Este sitio web utiliza cookies propias y de terceros para mejorar la experiencia del
+                    usuario y analizar el tráfico.</p>
+
+                <h2
+                    class="font-bold text-lg text-stone-800 uppercase tracking-widest mt-8 mb-4 border-b border-rose-100 pb-2">
+                    1. ¿Qué son las cookies?</h2>
+                <p>Las cookies son pequeños archivos de texto que se almacenan en su navegador cuando
+                    visita nuestro sitio web.</p>
+
+                <h2
+                    class="font-bold text-lg text-stone-800 uppercase tracking-widest mt-8 mb-4 border-b border-rose-100 pb-2">
+                    2. Tipos de cookies utilizamos</h2>
+                <ul class="list-disc ml-5 space-y-2">
+                    <li><strong>Cookies Técnicas:</strong> Necesarias para el funcionamiento básico (ej. navegación).
+                    </li>
+                    <li><strong>Cookies de Análisis (Google Analytics):</strong> Nos permiten cuantificar el número de
+                        usuarios
+                        y realizar la medición estadística.</li>
+                </ul>
+
+                <h2
+                    class="font-bold text-lg text-stone-800 uppercase tracking-widest mt-8 mb-4 border-b border-rose-100 pb-2">
+                    3. Desactivación de cookies</h2>
+                <p>Puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la
+                    configuración de las opciones del navegador instalado en su ordenador (Chrome, Firefox, Safari,
+                    Edge).</p>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="/"
+                    class="text-xs uppercase tracking-widest hover:text-rose-500 border-b border-transparent hover:border-rose-500 transition pb-1">«
+                    Volver al Inicio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-black text-center border-t border-stone-800 mt-auto">
+        <div class="text-[10px] uppercase tracking-widest text-stone-400 mb-4">
+            © 2026 Go Wedding Planner. Todos los derechos reservados.
+        </div>
+        <div
+            class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 text-[10px] uppercase tracking-widest text-stone-500 items-center">
+            <a href="/aviso-legal" class="hover:text-white transition">Aviso Legal</a>
+            <a href="/politica-privacidad" class="hover:text-white transition">Política de Privacidad</a>
+            <a href="/politica-cookies" class="hover:text-white transition">Política de Cookies</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>

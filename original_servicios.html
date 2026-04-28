@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios | Go Wedding Planner</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/XfLJghyC/Go.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/XfLJghyC/Go.png">
+    <meta name="msapplication-TileImage" content="https://i.ibb.co/XfLJghyC/Go.png">
+
+    <!-- SEO -->
+    <meta property="og:site_name" content="Go Wedding Planner">
+    <meta property="og:title" content="Servicios Exclusivos | Go Wedding Planner">
+    <meta property="og:url" content="https://goweddingplanner.com/servicios">
+    <meta property="og:description"
+        content="Planificación integral, diseño y coordinación de bodas. Descubre nuestros servicios personalizados.">
+    <link rel="canonical" href="https://goweddingplanner.com/servicios" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilos para acordeón Menu Movil */
+        details>summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details[open] summary~* {
+            animation: sweep .5s ease-in-out;
+        }
+
+        @keyframes sweep {
+            0% {
+                opacity: 0;
+                margin-top: -10px
+            }
+
+            100% {
+                opacity: 1;
+                margin-top: 0px
+            }
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Menú Móvil */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        #mobile-menu.open {
+            max-height: 100vh;
+            opacity: 1;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900 font-light overflow-x-hidden">
+
+    <!-- CATALOG MODAL -->
+    <div id="catalog-modal" style="display: none;"
+        class="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+        <div
+            class="bg-white p-6 md:p-10 max-w-lg w-full text-center shadow-2xl border-t-4 border-rose-500 rounded-sm relative">
+            <button onclick="closeCatalogModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-900"><i
+                    class="fas fa-times"></i></button>
+            <h3 class="text-2xl mb-2 italic text-stone-800">Catálogo 2026</h3>
+            <p class="text-xs text-stone-500 mb-6">Completa tus datos para descargar el catálogo completo.</p>
+
+            <iframe name="catalog_iframe" id="catalog_iframe" style="display:none;"
+                onload="if(catalogSubmitted) { showCatalogLink(); }"></iframe>
+            <form id="catalog-form"
+                action="https://docs.google.com/forms/d/e/1FAIpQLScSHlNWQ8U_wvu4JQd79gLn7zTMy5PFin00MIV_3uiWFfAtIQ/formResponse"
+                method="post" target="catalog_iframe" onsubmit="catalogSubmitted=true;" class="space-y-4 text-left">
+                <input type="email" name="entry.1480460378" placeholder="TU EMAIL" required
+                    class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition">
+
+                <div class="flex items-start gap-3 pt-2">
+                    <input type="checkbox" id="catalog-privacy" required class="mt-1 accent-rose-500 shrink-0">
+                    <label for="catalog-privacy"
+                        class="text-[9px] text-stone-500 uppercase tracking-tighter leading-tight">
+                        Acepto el envío de ofertas y servicios.
+                    </label>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-rose-500 text-white py-3 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-stone-800 transition">
+                    Ver Catálogo
+                </button>
+            </form>
+
+            <div id="catalog-success" style="display: none;" class="mt-6 flex flex-col items-center animate-pulse">
+                <a href="Go_Wedding_planner_catalogo.pdf" target="_blank" class="text-6xl text-red-600 mb-2"><i class="fas fa-file-pdf"></i></a>
+                <a href="Go_Wedding_planner_catalogo.pdf" target="_blank" class="text-sm font-bold uppercase tracking-widest border-b border-stone-900">Descargar
+                    Catálogo 2026</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='/'">
+                    <img src="https://i.ibb.co/XfLJghyC/Go.png" alt="Logo Go Wedding Planner"
+                        class="h-10 md:h-12 w-auto">
+                    <div class="text-lg md:text-xl font-bold tracking-widest uppercase truncate block">
+                        GO WEDDING <span class="text-rose-500">PLANNER</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex gap-6 lg:gap-8 text-xs font-bold tracking-widest uppercase items-center">
+                    <a href="/" class="hover:text-rose-500 transition">Inicio</a>
+                    <a href="/servicios" class="text-rose-500 transition">Servicios</a>
+                    <a href="/portfolio" class="hover:text-rose-500 transition">Portfolio</a>
+                    <a href="/sobre-nosotros" class="hover:text-rose-500 transition">Sobre Nosotros</a>
+                    <a href="/contacto" class="hover:text-rose-500 transition">Contacto</a>
+
+                    <!-- Dropdown Dónde Trabajamos -->
+                    <div class="relative dropdown group">
+                        <button
+                            class="hover:text-rose-500 transition flex items-center gap-1 focus:outline-none uppercase">
+                            Dónde Trabajamos <i class="fas fa-chevron-down text-[10px]"></i>
+                        </button>
+                        <div
+                            class="dropdown-menu absolute hidden pt-2 w-48 bg-white border border-stone-100 shadow-xl rounded-sm z-50 -left-10">
+                            <a href="/bodas-alcorcon"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Alcorcón</a>
+                            <a href="/bodas-arroyomolinos"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Arroyomolinos</a>
+                            <a href="/bodas-fuenlabrada"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Fuenlabrada</a>
+                            <a href="/bodas-getafe"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Getafe</a>
+                            <a href="/bodas-leganes"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Leganés</a>
+                            <a href="/bodas-mostoles"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Móstoles</a>
+                            <a href="/bodas-navalcarnero"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Navalcarnero</a>
+                            <a href="/bodas-villaviciosa"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Villaviciosa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hamburger Button -->
+                <button class="md:hidden text-2xl text-stone-800 focus:outline-none p-2" onclick="toggleMenu()"
+                    aria-label="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="md:hidden flex flex-col gap-0 mt-2 text-center text-sm uppercase tracking-widest bg-white border-t border-stone-100 shadow-lg overflow-y-auto max-h-[80vh]">
+                <a href="/" class="block py-4 border-b border-stone-50 hover:text-rose-500">Inicio</a>
+                <a href="/servicios" class="block py-4 border-b border-stone-50 hover:text-rose-500">Servicios</a>
+                <a href="/portfolio" class="block py-4 border-b border-stone-50 hover:text-rose-500">Portfolio</a>
+                <a href="/sobre-nosotros" class="block py-4 border-b border-stone-50 hover:text-rose-500">Sobre
+                    Nosotros</a>
+                <a href="/contacto" class="block py-4 border-b border-stone-50 hover:text-rose-500">Contacto</a>
+
+                <!-- Mobile Locations Collapsible -->
+                <details class="group border-b border-stone-50">
+                    <summary
+                        class="py-4 hover:text-rose-500 cursor-pointer list-none flex justify-center items-center gap-2">
+                        Dónde Trabajamos <i
+                            class="fas fa-chevron-down text-xs transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="bg-stone-50 py-2">
+                        <a href="/bodas-alcorcon" class="block py-2 text-xs text-stone-500">Alcorcón</a>
+                        <a href="/bodas-arroyomolinos" class="block py-2 text-xs text-stone-500">Arroyomolinos</a>
+                        <a href="/bodas-fuenlabrada" class="block py-2 text-xs text-stone-500">Fuenlabrada</a>
+                        <a href="/bodas-getafe" class="block py-2 text-xs text-stone-500">Getafe</a>
+                        <a href="/bodas-leganes" class="block py-2 text-xs text-stone-500">Leganés</a>
+                        <a href="/bodas-mostoles" class="block py-2 text-xs text-stone-500">Móstoles</a>
+                        <a href="/bodas-navalcarnero" class="block py-2 text-xs text-stone-500">Navalcarnero</a>
+                        <a href="/bodas-villaviciosa" class="block py-2 text-xs text-stone-500">Villaviciosa</a>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <section
+        class="pt-32 pb-16 bg-stone-900 text-white text-center px-6 bg-[url('https://i.ibb.co/XksQvjMC/IMG-3859.jpg')] bg-cover bg-center bg-no-repeat relative">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10">
+            <h1 class="text-4xl md:text-6xl italic mb-4">Experiencias Inolvidables</h1>
+            <p class="text-stone-200 max-w-2xl mx-auto">No tendréis que preocuparos de nada, será vuestro día
+                inolvidable.
+            </p>
+        </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="py-16 px-6 bg-white">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="border-l-2 border-rose-500 pl-6">
+                <h3 class="font-bold text-lg mb-1">Organizar una boda da mucho estrés</h3>
+                <p class="text-stone-500 text-sm">Nosotros nos encargamos de TODO, tú solo disfruta.</p>
+            </div>
+            <div class="border-l-2 border-rose-500 pl-6">
+                <h3 class="font-bold text-lg mb-1">No sé por dónde empezar</h3>
+                <p class="text-stone-500 text-sm">Te guiamos desde el primer momento con un plan claro.</p>
+            </div>
+            <div class="border-l-2 border-rose-500 pl-6">
+                <h3 class="font-bold text-lg mb-1">No conozco proveedores buenos</h3>
+                <p class="text-stone-500 text-sm">Tenemos red de profesionales seleccionados y testados.</p>
+            </div>
+            <div class="border-l-2 border-rose-500 pl-6">
+                <h3 class="font-bold text-lg mb-1">Miedo a que algo salga mal</h3>
+                <p class="text-stone-500 text-sm">Supervisamos cada detalle, plan B para todo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES LIST -->
+    <section class="py-16 bg-stone-50 px-6">
+        <div class="max-w-5xl mx-auto space-y-20">
+
+            <!-- Service 1 -->
+            <div>
+                <span class="text-rose-500 font-bold tracking-widest text-xs">SERVICIO 01</span>
+                <h2 class="text-3xl md:text-4xl italic mb-4 text-stone-800">Planificación Integral</h2>
+                <p class="font-medium text-stone-600 mb-4">El servicio llave en mano. Nosotros nos encargamos de TODO.
+                </p>
+                <p class="text-stone-500 leading-relaxed mb-6">Desde la primera idea hasta el último baile. Este
+                    servicio es perfecto si queréis despreocuparos completamente y confiar en expertos que conviertan
+                    vuestra visión en realidad.</p>
+                <ul class="text-sm text-stone-500 space-y-2 mb-8">
+                    <li><i class="fas fa-check text-rose-500 mr-2"></i> Queréis despreocuparos completamente</li>
+                    <li><i class="fas fa-check text-rose-500 mr-2"></i> Trabajáis a tiempo completo</li>
+                    <li><i class="fas fa-check text-rose-500 mr-2"></i> Buscáis resultados profesionales</li>
+                </ul>
+                <div class="flex flex-col sm:flex-row gap-4 items-center">
+                    <button onclick="openCatalogModal()"
+                        class="bg-stone-900 text-white px-6 py-3 text-[10px] uppercase tracking-widest hover:bg-rose-500 transition w-full sm:w-auto">Ver
+                        Catálogo 2026</button>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div>
+                <span class="text-rose-500 font-bold tracking-widest text-xs">SERVICIO 02</span>
+                <h2 class="text-3xl md:text-4xl italic mb-4 text-stone-800">Styling & Diseño</h2>
+                <p class="font-medium text-stone-600 mb-4">Creamos la identidad visual de vuestra boda.</p>
+                <p class="text-stone-500 leading-relaxed mb-6">¿Tenéis claro el venue pero necesitáis ayuda estética?
+                    Transformamos vuestras ideas en un concepto visual único.</p>
+                <div class="flex flex-col sm:flex-row gap-4 items-center">
+                    <button onclick="openCatalogModal()"
+                        class="bg-stone-900 text-white px-6 py-3 text-[10px] uppercase tracking-widest hover:bg-rose-500 transition w-full sm:w-auto">Ver
+                        Catálogo 2026</button>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div>
+                <span class="text-rose-500 font-bold tracking-widest text-xs">SERVICIO 03</span>
+                <h2 class="text-3xl md:text-4xl italic mb-4 text-stone-800">Coordinación "Día B"</h2>
+                <p class="font-medium text-stone-600 mb-4">Para que seáis invitados en vuestra propia boda.</p>
+                <p class="text-stone-500 leading-relaxed mb-6">Garantizamos que todo fluya perfectamente mientras
+                    vosotros solo os preocupáis de disfrutar.</p>
+                <div class="flex flex-col sm:flex-row gap-4 items-center">
+                    <button onclick="openCatalogModal()"
+                        class="bg-stone-900 text-white px-6 py-3 text-[10px] uppercase tracking-widest hover:bg-rose-500 transition w-full sm:w-auto">Ver
+                        Catálogo 2026</button>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div>
+                <span class="text-rose-500 font-bold tracking-widest text-xs">SERVICIO 04</span>
+                <h2 class="text-3xl md:text-4xl italic mb-4 text-stone-800">Destination Weddings</h2>
+                <p class="font-medium text-stone-600 mb-4">¿Soñáis con casaros en otra ciudad o país?</p>
+                <p class="text-stone-500 leading-relaxed mb-6">Gestionamos proveedores locales, logística y detalles
+                    legales.</p>
+                <div class="flex flex-col sm:flex-row gap-4 items-center">
+                    <button onclick="openCatalogModal()"
+                        class="bg-stone-900 text-white px-6 py-3 text-[10px] uppercase tracking-widest hover:bg-rose-500 transition w-full sm:w-auto">Ver
+                        Catálogo 2026</button>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div>
+                <span class="text-rose-500 font-bold tracking-widest text-xs">SERVICIO 05</span>
+                <h2 class="text-3xl md:text-4xl italic mb-4 text-stone-800">Asesoramiento de Imagen</h2>
+                <p class="font-medium text-stone-600 mb-4">Para que brilléis en vuestro gran día.</p>
+                <p class="text-stone-500 leading-relaxed mb-6">Guía en decisiones de imagen, vestido, dress code y
+                    estilismo.</p>
+                <div class="flex flex-col sm:flex-row gap-4 items-center">
+                    <button onclick="openCatalogModal()"
+                        class="bg-stone-900 text-white px-6 py-3 text-[10px] uppercase tracking-widest hover:bg-rose-500 transition w-full sm:w-auto">Ver
+                        Catálogo 2026</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-16 pt-16 border-t border-stone-200">
+            <h3 class="text-2xl italic mb-4">¿Necesitas una combinación personalizada?</h3>
+            <p class="text-stone-500 mb-8">Creamos un paquete a tu medida.</p>
+            <a href="/contacto"
+                class="bg-rose-500 text-white px-8 py-3 uppercase text-[10px] tracking-widest font-bold hover:bg-stone-900 transition shadow-lg">Solicitar
+                Paquete Personalizado</a>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="/portfolio"
+                class="underline text-stone-500 hover:text-rose-500 text-xs tracking-widest uppercase">Ver Bodas Reales
+                en Portfolio</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-black text-center border-t border-stone-800">
+        <div class="text-[10px] uppercase tracking-widest text-stone-400 mb-4">
+            © 2026 Go Wedding Planner. Todos los derechos reservados.
+        </div>
+        <div
+            class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 text-[10px] uppercase tracking-widest text-stone-500 items-center">
+            <a href="/aviso-legal" class="hover:text-white transition">Aviso Legal</a>
+            <a href="/politica-privacidad" class="hover:text-white transition">Política de Privacidad</a>
+            <a href="/politica-cookies" class="hover:text-white transition">Política de Cookies</a>
+        </div>
+    </footer>
+
+    <script>
+        let catalogSubmitted = false;
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+        function openCatalogModal() {
+            document.getElementById('catalog-modal').style.display = 'flex';
+        }
+        function closeCatalogModal() {
+            document.getElementById('catalog-modal').style.display = 'none';
+        }
+        function showCatalogLink() {
+            document.getElementById('catalog-form').style.display = 'none';
+            document.getElementById('catalog-success').style.display = 'flex';
+        }
+    </script>
+</body>
+
+</html>

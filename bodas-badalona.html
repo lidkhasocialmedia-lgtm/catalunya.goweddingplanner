@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wedding Planner en Badalona | Organización de Bodas | Go Wedding</title>
+
+    <link rel="icon" type="image/png" href="https://i.ibb.co/XfLJghyC/Go.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/XfLJghyC/Go.png">
+    <meta name="msapplication-TileImage" content="https://i.ibb.co/XfLJghyC/Go.png">
+
+    <meta property="og:site_name" content="Go Wedding Planner Barcelona">
+    <meta property="og:title" content="Wedding Planner en Badalona | Bodas Exclusivas">
+    <meta property="og:url" content="https://catalunya.goweddingplanner.com/bodas-badalona">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Especialistas en organización de bodas en Badalona y Cataluña.">
+    <meta property="og:image" content="https://i.ibb.co/XfLJghyC/Go.png">
+
+    <meta name="description"
+        content="Wedding Planner experto en Badalona. Diseño creativo, coordinación integral y gestión de proveedores locales en Badalona. ¡Tu boda perfecta sin estrés!">
+    <meta name="keywords" content="wedding planner Badalona, organización bodas Badalona, fincas bodas Badalona, masías Badalona cataluña">
+    <link rel="canonical" href="https://catalunya.goweddingplanner.com/bodas-badalona" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Go Wedding Planner Badalona",
+      "image": "https://i.ibb.co/XfLJghyC/Go.png",
+      "url": "https://catalunya.goweddingplanner.com/bodas-badalona",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Badalona",
+        "addressRegion": "Cataluña",
+        "addressCountry": "ES"
+      },
+      "priceRange": "$$$"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('FOTO%20GO%20W%20BARCELONA.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-item {
+            filter: brightness(0.9);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-container:hover .gallery-item:hover {
+            filter: brightness(1);
+            transform: scale(1.05);
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900">
+
+    <!-- MODAL SUCCESS -->
+    <div id="success-modal" style="display: none;"
+        class="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-8 md:p-12 max-w-lg w-full text-center shadow-2xl border-t-4 border-rose-500 rounded-sm relative">
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-stone-400 hover:text-stone-800 text-2xl transition">&times;</button>
+            <h3 class="text-2xl md:text-3xl mb-4 italic text-stone-800">¡Gracias!</h3>
+            <p class="text-sm md:text-base text-stone-600 mb-0 font-light">En breve nos pondremos en contacto contigo.</p>
+        </div>
+    </div>
+
+    <!-- CATALOG MODAL -->
+    <div id="catalog-modal" style="display: none;"
+        class="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-10 max-w-lg w-full text-center shadow-2xl border-t-4 border-rose-500 rounded-sm relative">
+            <button onclick="closeCatalogModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-900"><i
+                    class="fas fa-times"></i></button>
+            <h3 class="text-2xl mb-2 italic text-stone-800">Catálogo 2026</h3>
+            <p class="text-xs text-stone-500 mb-6">Completa tus datos para descargar el catálogo completo.</p>
+
+            <iframe name="catalog_iframe" id="catalog_iframe" style="display:none;"
+                onload="if(catalogSubmitted) { showCatalogLink(); }"></iframe>
+            <form id="catalog-form"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSeWSXBRgeiHXUBI60Ht2s-VzWEOmqE_j-i-__QmhPyMF50Wdw/formResponse"
+                method="post" target="catalog_iframe" onsubmit="catalogSubmitted=true;" class="space-y-4 text-left">
+                <input type="email" name="entry.1480460378" placeholder="TU EMAIL" required
+                    class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition">
+
+                <div class="flex items-start gap-3 pt-2">
+                    <input type="checkbox" id="catalog-privacy" required class="mt-1 accent-rose-500 shrink-0">
+                    <label for="catalog-privacy"
+                        class="text-[9px] text-stone-500 uppercase tracking-tighter leading-tight">
+                        Acepto el envío de ofertas y servicios.
+                    </label>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-rose-500 text-white py-3 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-stone-800 transition">
+                    Ver Catálogo
+                </button>
+            </form>
+
+            <div id="catalog-success" style="display: none;" class="mt-6 flex flex-col items-center animate-pulse">
+                <a href="/Go_Wedding_planner_Servicios.pdf" target="_blank" class="text-6xl text-red-600 mb-2"><i
+                        class="fas fa-file-pdf"></i></a>
+                <a href="/Go_Wedding_planner_Servicios.pdf" target="_blank"
+                    class="text-sm font-bold uppercase tracking-widest border-b border-stone-900">Descargar
+                    Catálogo 2026</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MENU -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.href='/'">
+                <img src="https://i.ibb.co/XfLJghyC/Go.png" alt="Logo" class="h-8 md:h-10 w-auto">
+                <div class="text-lg md:text-xl font-bold tracking-widest text-stone-800 uppercase hidden sm:block">GO
+                    WEDDING <span class="text-rose-400">Badalona</span></div>
+                <div class="text-sm font-bold tracking-widest text-stone-800 uppercase sm:hidden">GO WEDDING <span
+                        class="text-rose-400">Badalona</span></div>
+            </div>
+
+            <div
+                class="hidden md:flex gap-6 items-center text-[10px] font-bold uppercase tracking-widest text-stone-600">
+                <a href="#servicios-section" class="hover:text-rose-500 transition cursor-pointer">Servicios</a>
+                <a href="#nosotros-section" class="hover:text-rose-500 transition cursor-pointer">Sobre Nosotros</a>
+                <a href="#contacto-section" class="hover:text-rose-500 transition cursor-pointer">Contacto</a>
+                <a href="#galeria-section" class="hover:text-rose-500 transition cursor-pointer">Galería</a>
+                <a href="https://catalunya.goweddingplanner.com/"
+                    class="bg-rose-500 text-white px-4 py-2 rounded-sm hover:bg-stone-800 transition">IR A PAGINA
+                    PRINCIPAL</a>
+            </div>
+
+            <button class="md:hidden text-2xl text-stone-800"
+                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"><i
+                    class="fas fa-bars"></i></button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white border-t border-stone-200 p-4 flex flex-col gap-4 text-center text-xs uppercase font-bold tracking-widest transition-all">
+            <a href="#servicios-section" class="hover:text-rose-500">Servicios</a>
+            <a href="#nosotros-section" class="hover:text-rose-500">Sobre Nosotros</a>
+            <a href="#contacto-section" class="hover:text-rose-500">Contacto</a>
+            <a href="#galeria-section" class="hover:text-rose-500">Galería</a>
+            <a href="https://catalunya.goweddingplanner.com/" class="text-rose-500">IR A PAGINA PRINCIPAL</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center text-white px-4 pt-20">
+        <div class="max-w-4xl">
+            <span class="uppercase tracking-[0.5em] text-sm mb-4 block">Especialistas en Cataluña</span>
+            <h1 class="text-5xl md:text-7xl mb-8 font-light italic leading-tight">Vuestra Boda en Badalona, Sin Límites</h1>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mt-12 w-full">
+                <button onclick="scrollToSection('contacto-section')"
+                    class="bg-rose-500 text-white px-10 py-4 uppercase text-[10px] md:text-[11px] tracking-widest font-bold hover:bg-white hover:text-rose-500 transition duration-300 cursor-pointer shadow-lg w-full sm:w-auto">
+                    Pedir Presupuesto
+                </button>
+                <button onclick="scrollToSection('servicios-section')"
+                    class="border border-white bg-transparent px-10 py-4 uppercase text-[10px] md:text-[11px] tracking-widest font-bold hover:bg-white hover:text-stone-900 transition duration-300 cursor-pointer w-full sm:w-auto">
+                    Ver Servicios
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO TEXT -->
+    <section class="py-20 bg-white px-6 border-b border-stone-100">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl mb-6 italic text-stone-800">Wedding Planner en Badalona: Tu Día Perfecto</h2>
+            <p class="text-stone-500 leading-relaxed font-light mb-4">
+                Con vistas privilegiadas del horizonte mediterráneo, Badalona propone enlaces frente al mar o a pies de la Serralada de Marina. Nos especializamos en convertir los encantos históricos y náuticos de la ciudad en enlaces nupciales impactantes, desde pequeñas reuniones chic hasta grandes celebraciones.
+            </p>
+            <p class="text-stone-500 leading-relaxed font-light">
+                Nuestro equipo de <strong>wedding planners en Badalona</strong> se encarga de transformar vuestras ideas
+                en una celebración inolvidable. Gestionamos la logística, la decoración y los proveedores locales con una precisión
+                milimétrica, permitiéndoos disfrutar del proceso sin el estrés habitual de la organización en Cataluña.
+            </p>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios-section" class="py-20 md:py-32 px-6 max-w-7xl mx-auto bg-stone-900 text-white rounded-sm">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="order-2 md:order-1 p-0 md:pl-12">
+                <span class="text-rose-400 uppercase tracking-widest text-xs font-bold mb-4 block">Nuestra Experiencia</span>
+                <h2 class="text-4xl md:text-6xl mb-12 italic">Servicios A Medida</h2>
+
+                <div class="space-y-12">
+                    <div class="flex gap-6">
+                        <div class="text-rose-400 text-2xl font-serif italic">01.</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 italic tracking-wider capitalize">Planificación Integral</h4>
+                            <p class="text-sm text-stone-400 leading-relaxed">El servicio llave en mano. Nosotros nos encargamos de TODO. Desde la primera idea hasta el último baile.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="text-rose-400 text-2xl font-serif italic">02.</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 italic tracking-wider capitalize">Styling & Diseño</h4>
+                            <p class="text-sm text-stone-400 leading-relaxed">Creamos la identidad visual de vuestra boda. Transformamos vuestras ideas en un concepto visual único e impactante.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="text-rose-400 text-2xl font-serif italic">03.</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 italic tracking-wider capitalize">Coordinación "Día B"</h4>
+                            <p class="text-sm text-stone-400 leading-relaxed">Para que seáis invitados en vuestra propia boda. Garantizamos que todo fluya perfectamente.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="text-rose-400 text-2xl font-serif italic">04.</div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 italic tracking-wider capitalize">Destination Weddings BCN</h4>
+                            <p class="text-sm text-stone-400 leading-relaxed">Soluciones para parejas de fuera que sueñan con casarse en la belleza del litoral y prelitoral catalán.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-8">
+                        <button onclick="openCatalogModal()"
+                            class="bg-white text-stone-900 border border-white px-10 py-4 uppercase text-[10px] tracking-widest font-bold hover:bg-rose-500 hover:text-white transition duration-300 cursor-pointer shadow-lg w-full md:w-auto">
+                            VER CATALOGO 2026
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="order-1 md:order-2 space-y-4 pr-0 md:pr-12">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=2070"
+                    class="w-full h-[600px] object-cover rounded-sm shadow-2xl grayscale hover:grayscale-0 transition duration-700"
+                    alt="Servicios Wedding Planner">
+            </div>
+        </div>
+    </section>
+
+    <!-- PINK QUOTE SECTION -->
+    <section class="py-16 bg-rose-500 px-6 my-10 border-y border-rose-400">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-white text-2xl md:text-5xl italic font-light font-serif">"No tendréis que preocuparos de
+                nada, será el día perfecto."</p>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="py-20 bg-stone-100 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-4 shadow-md text-center text-stone-800 group border-t-2 border-stone-200 hover:border-rose-500 transition duration-500">
+                <div class="overflow-hidden mb-4 rounded-sm"><img
+                        src="FOTO%20MASIAS%20HISTORICAS.jpg"
+                        class="h-64 w-full object-cover group-hover:scale-105 transition duration-700" alt="Masías"></div>
+                <h3 class="text-2xl mb-2 italic">Masías Históricas</h3>
+                <p class="text-[10px] text-stone-400 uppercase tracking-widest font-bold">Encanto Rústico</p>
+            </div>
+            <div class="bg-white p-4 shadow-md text-center border-t-4 border-rose-400 text-stone-800 group">
+                <div class="overflow-hidden mb-4 rounded-sm"><img
+                        src="FOTO%20HOTELES%20EXCLUSIVOS.png"
+                        class="h-64 w-full object-cover group-hover:scale-105 transition duration-700" alt="Hoteles">
+                </div>
+                <h3 class="text-2xl mb-2 italic">Urban Chic</h3>
+                <p class="text-[10px] text-stone-400 uppercase tracking-widest font-bold">Hoteles y Vanguardia</p>
+            </div>
+            <div class="bg-white p-4 shadow-md text-center text-stone-800 group border-t-2 border-stone-200 hover:border-rose-500 transition duration-500">
+                <div class="overflow-hidden mb-4 rounded-sm"><img
+                        src="FOTO%20VISTAS%20MEDITERRANEO.jpg"
+                        class="h-64 w-full object-cover group-hover:scale-105 transition duration-700" alt="Playa"></div>
+                <h3 class="text-2xl mb-2 italic">Brisas del Mar</h3>
+                <p class="text-[10px] text-stone-400 uppercase tracking-widest font-bold">Litoral Mediterráneo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="py-16 md:py-20 bg-stone-50 px-4 md:px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-5xl text-center mb-6 italic text-stone-800">Cómo Trabajamos</h2>
+            <p class="text-center text-stone-500 mb-12 md:mb-16 text-sm md:text-base">De la Primera Idea al último
+                Baile. Nuestro proceso probado.</p>
+
+            <div class="space-y-12 relative border-l-2 border-rose-200 ml-2 md:ml-4 pl-6 md:pl-10">
+                <div class="relative">
+                    <div class="absolute -left-[31px] md:-left-[49px] top-1 w-4 h-4 bg-rose-500 rounded-full border-2 border-white"></div>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-rose-500 font-bold block mb-1">Paso 1 (Gratuito)</span>
+                    <h4 class="text-xl md:text-2xl italic text-stone-800 mb-2">Primera Consulta</h4>
+                    <p class="text-xs md:text-sm text-stone-600 mb-2">Videollamada o café para conocernos.</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -left-[31px] md:-left-[49px] top-1 w-4 h-4 bg-rose-300 rounded-full border-2 border-white"></div>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-rose-400 font-bold block mb-1">Paso 2</span>
+                    <h4 class="text-xl md:text-2xl italic text-stone-800 mb-2">Diseño del Plan y Estética</h4>
+                    <p class="text-xs md:text-sm text-stone-600">Presupuesto detallado, timeline y propuesta de venues en Cataluña.</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -left-[31px] md:-left-[49px] top-1 w-4 h-4 bg-stone-300 rounded-full border-2 border-white"></div>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-stone-400 font-bold block mb-1">Paso 3</span>
+                    <h4 class="text-xl md:text-2xl italic text-stone-800 mb-2">Búsqueda de Espacios & Proveedores Top</h4>
+                    <p class="text-xs md:text-sm text-stone-600 mb-2">Selección de las mejores fincas, catering y música.</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -left-[31px] md:-left-[49px] top-1 w-4 h-4 bg-stone-300 rounded-full border-2 border-white"></div>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-stone-400 font-bold block mb-1">Paso 4 (1 mes antes)</span>
+                    <h4 class="text-xl md:text-2xl italic text-stone-800 mb-2">El Ensayo Final</h4>
+                    <p class="text-xs md:text-sm text-stone-600 mb-2">Revisión profunda, timings pulidos al segundo y confirmación de proveedores.</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -left-[31px] md:-left-[49px] top-1 w-4 h-4 bg-rose-500 rounded-full border-2 border-white shadow-lg shadow-rose-500/50"></div>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-rose-500 font-bold block mb-1">Paso 5 ✨</span>
+                    <h4 class="text-xl md:text-2xl italic text-stone-800 mb-2">El Gran Día</h4>
+                    <p class="text-xs md:text-sm text-stone-600 mb-2">Coordinación de cada instante. Ustedes solo a celebrar y emocionarse.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <p class="mb-6 italic text-base md:text-lg">¿Listo para empezar este viaje juntos?</p>
+                <button onclick="scrollToSection('contacto-section')"
+                    class="bg-rose-500 text-white px-8 py-3 uppercase text-[10px] tracking-widest font-bold hover:bg-stone-900 transition shadow-lg w-full sm:w-auto">
+                    Agenda tu Primera Consulta Gratuita
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros-section" class="py-16 md:py-20 bg-white px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div class="relative order-2 md:order-1">
+                <img src="FOTO%20EQUIPO%20GO%20WEDDING.jpg"
+                    class="w-full h-64 md:h-[500px] object-cover rounded-sm shadow-xl grayscale hover:grayscale-0 transition duration-700"
+                    alt="Javier y Andrea Wedding Planners">
+                <div class="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-white p-4 md:p-6 shadow-lg border-l-4 border-rose-500 hidden sm:block">
+                    <p class="font-serif italic text-lg md:text-xl">"Dando vida a bodas con personalidad"</p>
+                </div>
+            </div>
+            <div class="order-1 md:order-2">
+                <span class="text-rose-500 uppercase tracking-widest text-xs font-bold mb-4 block">Sobre Nosotros</span>
+                <h2 class="text-3xl md:text-4xl italic text-stone-800 mb-6">Javier & Andrea</h2>
+                <p class="text-stone-500 leading-relaxed mb-6 text-sm md:text-base">
+                    Somos el dúo creativo detrás de Go Wedding Planner. Tras años diseñando bodas premium en toda España, dirigimos personalmente nuestra sede en Barcelona y todo el litoral barcelonés.
+                </p>
+                <p class="text-stone-500 leading-relaxed mb-8 text-sm md:text-base">
+                    Cada pareja tiene una esencia y creemos firmemente en celebraciones que no parezcan sacadas de un catálogo de banco de imágenes. Elegancia, precisión y una obsesión por la tranquilidad de los novios son nuestro sello garantizado para bodas en Badalona y cercanías.
+                </p>
+                <a href="https://catalunya.goweddingplanner.com/sobre-nosotros"
+                    class="border-b-2 border-stone-900 pb-1 text-stone-900 uppercase text-[10px] md:text-xs tracking-widest hover:text-rose-500 hover:border-rose-500 transition">EQUIPO GO WEDDING BCN</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS (CUSTOM BCN) -->
+    <section class="py-20 bg-stone-900 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-rose-400 text-3xl md:text-5xl text-center mb-16 italic font-light">Lo que dicen nuestras parejas en Badalona</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="border-l border-rose-500/30 pl-8 py-4">
+                    <div class="flex gap-1 mb-4">
+                        <span class="text-rose-400">★★★★★</span>
+                    </div>
+                    <p class="text-rose-400/90 text-xl md:text-2xl font-serif italic leading-relaxed mb-6">
+                        "Queríamos la cercanía de Badalona y una ceremonia con sabor marino. Fue absolutamente redondo." — Aida & Ivan
+                    </p>
+                </div>
+                <div class="border-l border-rose-500/30 pl-8 py-4">
+                    <div class="flex gap-1 mb-4">
+                        <span class="text-rose-400">★★★★★</span>
+                    </div>
+                    <p class="text-rose-400/90 text-xl md:text-2xl font-serif italic leading-relaxed mb-6">
+                        "Disponer de su asesoramiento y buen gusto transformó un proceso estresante en un placer enorme." — Teresa & Pau
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="py-24 bg-white px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <h5 class="text-3xl md:text-4xl font-serif italic text-rose-500 mb-2">+50</h5>
+                <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-stone-400">Bodas Realizadas</p>
+            </div>
+            <div>
+                <h5 class="text-3xl md:text-4xl font-serif italic text-rose-500 mb-2">0%</h5>
+                <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-stone-400">Estrés para la pareja</p>
+            </div>
+            <div>
+                <h5 class="text-3xl md:text-4xl font-serif italic text-rose-500 mb-2">Top</h5>
+                <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-stone-400">Proveedores de Barcelona</p>
+            </div>
+            <div>
+                <h5 class="text-3xl md:text-4xl font-serif italic text-rose-500 mb-2">24/7</h5>
+                <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-stone-400">Atención Personalizada</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 md:py-20 px-6 bg-stone-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-5xl text-center mb-12 italic text-stone-800">Preguntas Frecuentes</h2>
+
+            <div class="space-y-4">
+                <details class="group border border-stone-200 rounded-sm bg-white">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 md:p-6 bg-white group-open:bg-rose-50 transition">
+                        <span class="uppercase tracking-widest text-[10px] md:text-xs font-bold pr-4">Sobre Precios y Pagos</span>
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-stone-600 text-sm p-4 md:p-6 bg-white border-t border-stone-100">
+                        <p class="mb-4"><strong>¿Cuál es el costo?</strong> Nuestros servicios parten desde una base, pero cada boda es única. Ofrecemos presupuestos a medida tras la primera consulta gratuita.</p>
+                        <p class="mb-4"><strong>¿Trabajan a comisión?</strong> No. Cobramos por nuestro tiempo y experiencia. Si conseguimos descuentos con proveedores, ese ahorro es para vosotros.</p>
+                        <p><strong>Proceso de pago:</strong> Trabajamos con un depósito inicial para reservar la fecha y pagos fraccionados hasta el día de la boda.</p>
+                    </div>
+                </details>
+
+                <details class="group border border-stone-200 rounded-sm bg-white">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 md:p-6 bg-white group-open:bg-rose-50 transition">
+                        <span class="uppercase tracking-widest text-[10px] md:text-xs font-bold pr-4">Experiencia y Proceso</span>
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-stone-600 text-sm p-4 md:p-6 bg-white border-t border-stone-100">
+                        <p class="mb-4"><strong>¿Con cuánta antelación?</strong> Recomendamos contactarnos 12 meses antes para Planificación Integral. Para Coordinación, mínimo 3 meses.</p>
+                        <p><strong>¿Estás presente el día de la boda?</strong> Sí, siempre hay un coordinador principal y asistentes según el número de invitados.</p>
+                    </div>
+                </details>
+
+                <details class="group border border-stone-200 rounded-sm bg-white">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-4 md:p-6 bg-white group-open:bg-rose-50 transition">
+                        <span class="uppercase tracking-widest text-[10px] md:text-xs font-bold pr-4">Alcance Geográfico</span>
+                        <span class="transition group-open:rotate-180"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="text-stone-600 text-sm p-4 md:p-6 bg-white border-t border-stone-100">
+                        <p class="mb-4"><strong>¿Dónde trabajáis?</strong> Nuestra base principal atiende toda la provincia de Cataluña (Sant Cugat, Sitges, Sabadell, etc.) y realizamos bodas en toda Cataluña (Girona, Costa Brava, Tarragona).</p>
+                        <p><strong>¿¿Coste por desplazamiento?</strong> Si tu boda es fuera, contamos con disponibilidad para desplazarnos ajustando los gastos logísticos.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO BCN MODIFIED TO FUENLABRADA DARK STYLE -->
+    <section id="contacto-section" class="py-20 md:py-32 bg-stone-100 px-6">
+        <div class="max-w-5xl mx-auto text-center mb-16">
+            <h2 class="text-4xl md:text-5xl italic text-stone-800">Contacto</h2>
+        </div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-0 bg-stone-900 shadow-2xl rounded-sm overflow-hidden w-full">
+            <div class="p-8 md:p-12 text-white flex flex-col justify-center bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] text-center md:text-left">
+                <div class="flex justify-center md:justify-start mb-6">
+                    <img src="https://i.ibb.co/XfLJghyC/Go.png" alt="Logo Go Wedding Planner" class="h-12 w-auto">
+                </div>
+                <h3 class="text-2xl md:text-3xl mb-6 italic">Comencemos a diseñar vuestro gran día</h3>
+                <p class="text-stone-400 text-sm italic border-none md:border-l-2 border-rose-500 md:pl-4 mb-4 font-light">
+                    ¿Preparados para la boda de vuestros sueños en Cataluña? Dejad vuestros datos y os asignaremos un Wedding Planner sénior sin compromiso.
+                </p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-rose-300 font-bold">Oficina Receptora Barcelona</p>
+            </div>
+
+            <div class="bg-white p-8 md:p-10 rounded-none md:rounded-r-sm text-stone-900 shadow-xl relative">
+                <iframe name="hidden_iframe_contact" id="hidden_iframe_contact" style="display:none;" onload="if(submitted) {showSuccess();}"></iframe>
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLSfqE3zOn62O5EfbQj-Fpb_qiTLLStWBO7dLnWMSbuH9hSDnfQ/formResponse" method="post" target="hidden_iframe_contact" onsubmit="submitted=true;" class="space-y-6">
+                    <input type="text" name="entry.2072351570" placeholder="NOMBRE Y APELLIDOS" required class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition bg-transparent">
+                    <input type="email" name="entry.934898924" placeholder="EMAIL" required class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition bg-transparent">
+                    <input type="tel" name="entry.1240241884" placeholder="TELÃ‰FONO" required class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition bg-transparent">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" name="entry.1103406153" placeholder="FECHA APROX." class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition bg-transparent">
+                        <input type="text" name="entry.1895093121" placeholder="CIUDAD / LUGAR" value="Badalona" class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition bg-transparent font-semibold">
+                    </div>
+
+                    <textarea name="entry.1310552457" placeholder="CONTADNOS VUESTRA IDEA..." required rows="3" class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition bg-transparent"></textarea>
+
+                    <div class="flex items-start gap-3 pt-2">
+                        <input type="checkbox" id="privacy-contact" required class="mt-1 accent-rose-500 shrink-0">
+                        <label for="privacy-contact" class="text-[9px] md:text-[10px] text-stone-500 uppercase tracking-tighter leading-tight text-left">
+                            Acepto el aviso legal y la cesión de datos para contacto.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-rose-500 text-white py-4 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-stone-800 transition shadow-xl cursor-pointer">
+                        Enviar Solicitud
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY 9 IMAGES -->
+    <section id="galeria-section" class="py-20 bg-white px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl text-center mb-16 italic text-stone-800">Inspiración e Ideas</h2>
+            <div class="gallery-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 overflow-hidden p-2">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800" class="gallery-item w-full h-80 object-cover rounded-sm shadow-md" alt="Mesa exterior BCN">
+                <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&q=80&w=800" class="gallery-item w-full h-80 object-cover rounded-sm shadow-md" alt="Decoracion floral BCN">
+                <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&q=80&w=800" class="gallery-item w-full h-80 object-cover rounded-sm shadow-md" alt="Detalle anillos">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" class="gallery-item w-full h-80 object-cover rounded-sm shadow-md" alt="Banquete noche">
+                <img src="FOTO%20MASIA%20BODA%20CIVIL.jpg" class="gallery-item w-full h-80 object-cover rounded-sm shadow-md" alt="Masia boda civil">
+                <img src="https://i.ibb.co/LdSJ3Sd2/unnamed-3.jpg" class="gallery-item w-full h-80 object-cover rounded-sm shadow-md" alt="Bodegon bodas">
+                <img src="https://i.ibb.co/Xf6R14WY/unnamed-2.jpg" class="gallery-item w-full h-80 object-cover rounded-sm shadow-md" alt="Banquete floral vintage">
+                <img src="https://i.ibb.co/j9Hr6xJj/unnamed.jpg" class="gallery-item w-full h-80 object-cover rounded-sm shadow-md" alt="Copas brindis">
+                <img src="https://i.ibb.co/xShgXgLL/unnamed-1.jpg" class="gallery-item w-full h-80 object-cover rounded-sm shadow-md" alt="Recepcion novios">
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER LINK -->
+    <section class="py-12 bg-rose-500 text-center border-b border-rose-600">
+        <a href="https://catalunya.goweddingplanner.com/" class="text-white font-bold uppercase tracking-widest text-[10px] md:text-xs hover:text-stone-900 transition underline-offset-4 hover:underline">
+            VOLVER A PORTADA PRINCIPAL DE BARCELONA
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-black text-center border-t border-stone-800">
+        <div class="text-[10px] uppercase tracking-widest text-stone-400 mb-4">
+            Â© 2026 Go Wedding Planner Barcelona. Todos los derechos reservados.
+        </div>
+        <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 text-[10px] uppercase tracking-widest text-stone-500 items-center">
+            <a href="https://catalunya.goweddingplanner.com/aviso-legal" class="hover:text-white transition">Aviso Legal</a>
+            <a href="https://catalunya.goweddingplanner.com/politica-privacidad" class="hover:text-white transition">Política de Privacidad</a>
+            <a href="https://catalunya.goweddingplanner.com/politica-cookies" class="hover:text-white transition">Política de Cookies</a>
+        </div>
+    </footer>
+
+    <script>
+        let catalogSubmitted = false;
+        let submitted = false;
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('mobile-menu').classList.add('hidden');
+            }
+        }
+        function openCatalogModal() {
+            document.getElementById('catalog-modal').style.display = 'flex';
+        }
+        function closeCatalogModal() {
+            document.getElementById('catalog-modal').style.display = 'none';
+        }
+        function showCatalogLink() {
+            document.getElementById('catalog-form').style.display = 'none';
+            document.getElementById('catalog-success').style.display = 'flex';
+        }
+        function showSuccess() {
+            document.getElementById('success-modal').style.display = 'flex';
+            document.getElementById('contacto-section').querySelector('form').reset();
+        }
+        function closeModal() {
+            document.getElementById('success-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+

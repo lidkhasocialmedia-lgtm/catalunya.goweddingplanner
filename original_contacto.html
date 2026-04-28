@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Go Wedding Planner</title>
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/XfLJghyC/Go.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/XfLJghyC/Go.png">
+    <meta name="msapplication-TileImage" content="https://i.ibb.co/XfLJghyC/Go.png">
+
+    <!-- SEO -->
+    <meta property="og:site_name" content="Go Wedding Planner">
+    <meta property="og:title" content="Contacta con Go Wedding Planner">
+    <meta property="og:description"
+        content="Agenda tu primera consulta gratuita. Empecemos a planear vuestra boda soñada.">
+    <meta property="og:image" content="https://i.ibb.co/XfLJghyC/Go.png">
+    <link rel="canonical" href="https://goweddingplanner.com/contacto" />
+    <meta property="og:url" content="https://goweddingplanner.com/contacto">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Estilos para acordeón FAQ */
+        details>summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details[open] summary~* {
+            animation: sweep .5s ease-in-out;
+        }
+
+        @keyframes sweep {
+            0% {
+                opacity: 0;
+                margin-top: -10px
+            }
+
+            100% {
+                opacity: 1;
+                margin-top: 0px
+            }
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Menú Móvil */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        #mobile-menu.open {
+            max-height: 100vh;
+            opacity: 1;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900 font-light overflow-x-hidden">
+
+    <!-- MODAL SUCCESS -->
+    <div id="success-modal" style="display: none;"
+        class="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-10 max-w-lg w-full text-center shadow-2xl border-t-4 border-rose-500 rounded-sm">
+            <h3 class="text-2xl md:text-3xl mb-4 italic text-stone-800">¡Recibido!</h3>
+            <p class="text-sm md:text-base text-stone-600 mb-8 font-light">Gracias, en breve nos pondremos en contacto
+                contigo.</p>
+            <button onclick="closeModal()"
+                class="bg-stone-900 text-white px-8 py-3 uppercase text-[10px] tracking-widest font-bold hover:bg-rose-500 transition cursor-pointer w-full md:w-auto">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='/'">
+                    <img src="https://i.ibb.co/XfLJghyC/Go.png" alt="Logo Go Wedding Planner"
+                        class="h-10 md:h-12 w-auto">
+                    <div class="text-lg md:text-xl font-bold tracking-widest uppercase truncate block">
+                        GO WEDDING <span class="text-rose-500">PLANNER</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex gap-6 lg:gap-8 text-xs font-bold tracking-widest uppercase items-center">
+                    <a href="/" class="hover:text-rose-500 transition">Inicio</a>
+                    <a href="/servicios" class="hover:text-rose-500 transition">Servicios</a>
+                    <a href="/portfolio" class="hover:text-rose-500 transition">Portfolio</a>
+                    <a href="/sobre-nosotros" class="hover:text-rose-500 transition">Sobre Nosotros</a>
+                    <a href="/contacto" class="hover:text-rose-500 transition">Contacto</a>
+
+                    <!-- Dropdown Dónde Trabajamos -->
+                    <div class="relative dropdown group">
+                        <button
+                            class="hover:text-rose-500 transition flex items-center gap-1 focus:outline-none uppercase">
+                            Dónde Trabajamos <i class="fas fa-chevron-down text-[10px]"></i>
+                        </button>
+                        <div
+                            class="dropdown-menu absolute hidden pt-2 w-48 bg-white border border-stone-100 shadow-xl rounded-sm z-50 -left-10">
+                            <a href="/bodas-alcorcon"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Alcorcón</a>
+                            <a href="/bodas-arroyomolinos"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Arroyomolinos</a>
+                            <a href="/bodas-fuenlabrada"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Fuenlabrada</a>
+                            <a href="/bodas-getafe"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Getafe</a>
+                            <a href="/bodas-leganes"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Leganés</a>
+                            <a href="/bodas-mostoles"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Móstoles</a>
+                            <a href="/bodas-navalcarnero"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Navalcarnero</a>
+                            <a href="/bodas-villaviciosa"
+                                class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Villaviciosa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hamburger Button -->
+                <button class="md:hidden text-2xl text-stone-800 focus:outline-none p-2" onclick="toggleMenu()"
+                    aria-label="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="md:hidden flex flex-col gap-0 mt-2 text-center text-sm uppercase tracking-widest bg-white border-t border-stone-100 shadow-lg overflow-y-auto max-h-[80vh]">
+                <a href="/" class="block py-4 border-b border-stone-50 hover:text-rose-500">Inicio</a>
+                <a href="/servicios" class="block py-4 border-b border-stone-50 hover:text-rose-500">Servicios</a>
+                <a href="/portfolio" class="block py-4 border-b border-stone-50 hover:text-rose-500">Portfolio</a>
+                <a href="/sobre-nosotros" class="block py-4 border-b border-stone-50 hover:text-rose-500">Sobre
+                    Nosotros</a>
+                <a href="/contacto" class="block py-4 border-b border-stone-50 hover:text-rose-500">Contacto</a>
+
+                <!-- Mobile Locations Collapsible -->
+                <details class="group border-b border-stone-50">
+                    <summary
+                        class="py-4 hover:text-rose-500 cursor-pointer list-none flex justify-center items-center gap-2">
+                        Dónde Trabajamos <i
+                            class="fas fa-chevron-down text-xs transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="bg-stone-50 py-2">
+                        <a href="/bodas-alcorcon" class="block py-2 text-xs text-stone-500">Alcorcón</a>
+                        <a href="/bodas-arroyomolinos" class="block py-2 text-xs text-stone-500">Arroyomolinos</a>
+                        <a href="/bodas-fuenlabrada" class="block py-2 text-xs text-stone-500">Fuenlabrada</a>
+                        <a href="/bodas-getafe" class="block py-2 text-xs text-stone-500">Getafe</a>
+                        <a href="/bodas-leganes" class="block py-2 text-xs text-stone-500">Leganés</a>
+                        <a href="/bodas-mostoles" class="block py-2 text-xs text-stone-500">Móstoles</a>
+                        <a href="/bodas-navalcarnero" class="block py-2 text-xs text-stone-500">Navalcarnero</a>
+                        <a href="/bodas-villaviciosa" class="block py-2 text-xs text-stone-500">Villaviciosa</a>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <section class="pt-32 pb-10 bg-stone-900 text-center px-6">
+        <h1 class="text-4xl md:text-6xl italic mb-4 text-rose-500 font-bold">DA EL PASO...</h1>
+        <p class="text-stone-400 max-w-2xl mx-auto">Tu boda perfecta comienza con un "Hola".</p>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="py-12 bg-white px-6">
+        <div class="max-w-4xl mx-auto bg-stone-50 p-8 md:p-16 rounded-sm shadow-lg">
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                onload="if(submitted) {showSuccess();}"></iframe>
+            <form
+                action="https://docs.google.com/forms/d/e/1FAIpQLSdlSwXwTMtqTDvxypP_AzqAcCnwqZVlD4Gm4tvDdBkZ6mbywg/formResponse"
+                method="post" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-6">
+                <!-- IDs actualizados según los entry IDs proporcionados -->
+                <input type="text" name="entry.2072351570" placeholder="NOMBRE Y APELLIDOS" required
+                    class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition">
+                <input type="email" name="entry.934898924" placeholder="EMAIL" required
+                    class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition">
+                <input type="tel" name="entry.1240241884" placeholder="TELÉFONO" required
+                    class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="text" name="entry.1103406153" placeholder="FECHA APROX."
+                        class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition">
+                    <input type="text" name="entry.1895093121" placeholder="CIUDAD / LUGAR"
+                        class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition">
+                </div>
+
+                <textarea name="entry.1310552457" placeholder="CONTADNOS VUESTRA IDEA..." required rows="3"
+                    class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition"></textarea>
+
+                <div class="flex items-start gap-3 pt-2">
+                    <input type="checkbox" id="privacy" required class="mt-1 accent-rose-500 shrink-0">
+                    <label for="privacy"
+                        class="text-[9px] md:text-[10px] text-stone-500 uppercase tracking-tighter leading-tight text-left">
+                        Acepto el tratamiento de datos y la cesión a proveedores locales para obtener la mejor
+                        oferta.
+                    </label>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-rose-500 text-white py-4 font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-stone-800 transition shadow-xl cursor-pointer">
+                    Enviar Solicitud
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 md:py-20 px-6 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-5xl text-center mb-12 italic text-stone-800">Preguntas Frecuentes</h2>
+
+            <div class="space-y-4">
+                <!-- Bloque Precios -->
+                <details class="group border border-stone-200 rounded-sm">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-4 md:p-6 bg-stone-50 group-open:bg-rose-50 transition">
+                        <span class="uppercase tracking-widest text-[10px] md:text-xs font-bold pr-4">Sobre Precios y
+                            Pagos</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-stone-600 text-sm p-4 md:p-6 bg-white border-t border-stone-100">
+                        <p class="mb-4"><strong>¿Cuál es el costo?</strong> Nuestros servicios parten desde una base,
+                            pero cada boda es única. Ofrecemos presupuestos a medida tras la primera consulta gratuita.
+                        </p>
+                        <p class="mb-4"><strong>¿Trabajan a comisión?</strong> No. Cobramos por nuestro tiempo y
+                            experiencia. Si conseguimos descuentos con proveedores, ese ahorro es para vosotros.</p>
+                        <p><strong>Proceso de pago:</strong> Trabajamos con un depósito inicial para reservar la fecha y
+                            pagos fraccionados hasta el día de la boda.</p>
+                    </div>
+                </details>
+
+                <!-- Bloque Experiencia -->
+                <details class="group border border-stone-200 rounded-sm">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-4 md:p-6 bg-stone-50 group-open:bg-rose-50 transition">
+                        <span class="uppercase tracking-widest text-[10px] md:text-xs font-bold pr-4">Experiencia y
+                            Proceso</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-stone-600 text-sm p-4 md:p-6 bg-white border-t border-stone-100">
+                        <p class="mb-4"><strong>¿Con cuánta antelación?</strong> Recomendamos contactarnos 12 meses
+                            antes para Planificación Integral. Para Coordinación, mínimo 3 meses.</p>
+                        <p><strong>¿Estás presente el día de la boda?</strong> Sí, siempre hay un coordinador principal
+                            (Javier o Andrea) y asistentes según el número de invitados.</p>
+                    </div>
+                </details>
+
+                <!-- Bloque Geografía -->
+                <details class="group border border-stone-200 rounded-sm">
+                    <summary
+                        class="flex justify-between items-center font-medium cursor-pointer list-none p-4 md:p-6 bg-stone-50 group-open:bg-rose-50 transition">
+                        <span class="uppercase tracking-widest text-[10px] md:text-xs font-bold pr-4">Alcance
+                            Geográfico</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-stone-600 text-sm p-4 md:p-6 bg-white border-t border-stone-100">
+                        <p class="mb-4"><strong>¿Dónde trabajáis?</strong> Nuestra base es Madrid Sur (Móstoles,
+                            Alcorcón, Arroyomolinos), pero organizamos bodas en toda la Comunidad de Madrid y resto de
+                            España.</p>
+                        <p><strong>¿Coste por desplazamiento?</strong> Incluido en Madrid Comunidad. Fuera de la
+                            comunidad se calculan gastos de viaje y alojamiento.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLLAB LINK -->
+    <section class="py-16 bg-stone-900 text-white text-center">
+        <h3 class="text-2xl italic mb-4">¿Quieres colaborar o trabajar con nosotros?</h3>
+        <a href="/sobre-nosotros"
+            class="inline-block border-b border-white pb-1 hover:text-rose-500 hover:border-rose-500 transition uppercase tracking-widest text-xs">Ir
+            a formulario de colaboradores</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-black text-center border-t border-stone-800">
+        <div class="text-[10px] uppercase tracking-widest text-stone-400 mb-4">
+            © 2026 Go Wedding Planner. Todos los derechos reservados.
+        </div>
+        <div
+            class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 text-[10px] uppercase tracking-widest text-stone-500 items-center">
+            <a href="/aviso-legal" class="hover:text-white transition">Aviso Legal</a>
+            <a href="/politica-privacidad" class="hover:text-white transition">Política de Privacidad</a>
+            <a href="/politica-cookies" class="hover:text-white transition">Política de Cookies</a>
+        </div>
+    </footer>
+
+    <script>
+        let submitted = false;
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+        function showSuccess() {
+            document.getElementById('success-modal').style.display = 'flex';
+            document.querySelector('form').reset();
+        }
+        function closeModal() {
+            document.getElementById('success-modal').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

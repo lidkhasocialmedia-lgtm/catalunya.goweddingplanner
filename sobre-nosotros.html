@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros | Go Wedding Planner Cataluña</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/XfLJghyC/Go.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/XfLJghyC/Go.png">
+    <meta name="msapplication-TileImage" content="https://i.ibb.co/XfLJghyC/Go.png">
+
+    <!-- SEO -->
+    <meta property="og:site_name" content="Go Wedding Planner">
+    <meta property="og:title" content="Javier & Andrea | Go Wedding Planner Cataluña">
+    <meta property="og:description"
+        content="Conoce al equipo detrás de Go Wedding Planner. Javier y Andrea, expertos en crear bodas con alma en Cataluña.">
+    <meta property="og:image" content="https://i.ibb.co/XfLJghyC/Go.png">
+    <link rel="canonical" href="https://catalunya.goweddingplanner.com/sobre-nosotros" />
+    <meta property="og:url" content="https://catalunya.goweddingplanner.com/sobre-nosotros">
+
+    <!-- Schema Markup LocalBusiness Generico Provincia Barcelona -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Go Wedding Planner Cataluña",
+      "image": "https://i.ibb.co/XfLJghyC/Go.png",
+      "url": "https://catalunya.goweddingplanner.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cataluña",
+        "addressRegion": "Cataluña",
+        "addressCountry": "ES"
+      },
+      "priceRange": "$$$"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Menu Movil */
+        details>summary { list-style: none; cursor: pointer; }
+        details>summary::-webkit-details-marker { display: none; }
+        details[open] summary~* { animation: sweep .5s ease-in-out; }
+        @keyframes sweep { 0% { opacity: 0; margin-top: -10px } 100% { opacity: 1; margin-top: 0px } }
+        .dropdown:hover .dropdown-menu { display: block; }
+
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        #mobile-menu.open {
+            max-height: 100vh;
+            opacity: 1;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900 font-light overflow-x-hidden">
+
+    <!-- SUCCES MODAL COLLABORATION -->
+    <div id="collab-modal" style="display: none;"
+        class="fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+        <div class="bg-white p-6 md:p-10 max-w-lg w-full text-center shadow-2xl border-t-4 border-stone-900 rounded-sm">
+            <h3 class="text-2xl mb-4 italic text-stone-800">¡Muchas Gracias!</h3>
+            <p class="text-sm text-stone-600 mb-8">En breve nos pondremos en contacto contigo para valorar tu propuesta.</p>
+            <button onclick="closeCollabModal()"
+                class="bg-stone-900 text-white px-8 py-3 uppercase text-[10px] tracking-widest font-bold hover:bg-stone-700 transition w-full md:w-auto">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='/'">
+                    <img src="https://i.ibb.co/XfLJghyC/Go.png" alt="Logo Go Wedding Planner" class="h-10 md:h-12 w-auto">
+                    <div class="text-lg md:text-xl font-bold tracking-widest uppercase truncate block">
+                        GO WEDDING <span class="text-rose-500">PLANNER</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex gap-6 lg:gap-8 text-xs font-bold tracking-widest uppercase items-center">
+                    <a href="/" class="hover:text-rose-500 transition">Inicio</a>
+                    <a href="/servicios" class="hover:text-rose-500 transition">Servicios</a>
+                    <a href="/portfolio" class="hover:text-rose-500 transition">Portfolio</a>
+                    <a href="/sobre-nosotros" class="text-rose-500 transition">Sobre Nosotros</a>
+                    <a href="/contacto" class="hover:text-rose-500 transition">Contacto</a>
+
+                    <div class="relative dropdown group">
+                        <button class="hover:text-rose-500 transition flex items-center gap-1 focus:outline-none uppercase">
+                            Dónde Trabajamos <i class="fas fa-chevron-down text-[10px]"></i>
+                        </button>
+                        <div class="dropdown-menu absolute hidden pt-2 w-48 bg-white border border-stone-100 shadow-xl rounded-sm z-50 -left-10">
+                            <a href="/bodas-sant-cugat" class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Sant Cugat del Vallès</a>
+                            <a href="/bodas-sitges" class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Sitges</a>
+                            <a href="/bodas-castelldefels" class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Castelldefels</a>
+                            <a href="/bodas-sabadell" class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Sabadell</a>
+                            <a href="/bodas-terrassa" class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Terrassa</a>
+                            <a href="/bodas-esplugues" class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Esplugues de Llob.</a>
+                            <a href="/bodas-sant-just" class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Sant Just Desvern</a>
+                            <a href="/bodas-mataro" class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Mataró</a>
+                            <a href="/bodas-granollers" class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Granollers</a>
+                            <a href="/bodas-badalona" class="block px-4 py-2 hover:bg-rose-50 text-stone-600 hover:text-rose-500 transition">Badalona</a>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="md:hidden text-2xl text-stone-800 focus:outline-none p-2" onclick="toggleMenu()" aria-label="Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden flex flex-col gap-0 mt-2 text-center text-sm uppercase tracking-widest bg-white border-t border-stone-100 shadow-lg overflow-y-auto max-h-[80vh]">
+                <a href="/" class="block py-4 border-b border-stone-50 hover:text-rose-500">Inicio</a>
+                <a href="/servicios" class="block py-4 border-b border-stone-50 hover:text-rose-500">Servicios</a>
+                <a href="/portfolio" class="block py-4 border-b border-stone-50 hover:text-rose-500">Portfolio</a>
+                <a href="/sobre-nosotros" class="block py-4 border-b border-stone-50 hover:text-rose-500">Sobre Nosotros</a>
+                <a href="/contacto" class="block py-4 border-b border-stone-50 hover:text-rose-500">Contacto</a>
+
+                <details class="group border-b border-stone-50">
+                    <summary class="py-4 hover:text-rose-500 cursor-pointer list-none flex justify-center items-center gap-2">
+                        Dónde Trabajamos <i class="fas fa-chevron-down text-xs transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <div class="bg-stone-50 py-2">
+                        <a href="/bodas-sant-cugat" class="block py-2 text-xs text-stone-500">Sant Cugat del Vallès</a>
+                        <a href="/bodas-sitges" class="block py-2 text-xs text-stone-500">Sitges</a>
+                        <a href="/bodas-castelldefels" class="block py-2 text-xs text-stone-500">Castelldefels</a>
+                        <a href="/bodas-sabadell" class="block py-2 text-xs text-stone-500">Sabadell</a>
+                        <a href="/bodas-terrassa" class="block py-2 text-xs text-stone-500">Terrassa</a>
+                        <a href="/bodas-esplugues" class="block py-2 text-xs text-stone-500">Esplugues de Llobregat</a>
+                        <a href="/bodas-sant-just" class="block py-2 text-xs text-stone-500">Sant Just Desvern</a>
+                        <a href="/bodas-mataro" class="block py-2 text-xs text-stone-500">Mataró</a>
+                        <a href="/bodas-granollers" class="block py-2 text-xs text-stone-500">Granollers</a>
+                        <a href="/bodas-badalona" class="block py-2 text-xs text-stone-500">Badalona</a>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BIO SECTION -->
+    <section class="py-20 md:py-32 bg-white px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="relative mt-10">
+                <img src="FOTO%20EQUIPO%20GO%20WEDDING.jpg"
+                    class="w-full h-[500px] object-cover rounded-sm shadow-xl grayscale hover:grayscale-0 transition duration-700"
+                    alt="Javier y Andrea Wedding Planners Cataluña">
+            </div>
+            <div>
+                <span class="text-rose-500 uppercase tracking-widest text-xs font-bold mb-4 block">Nuestro Equipo</span>
+                <h1 class="text-4xl md:text-6xl italic text-stone-800 mb-8">Javier & Andrea</h1>
+                <p class="text-stone-500 leading-relaxed mb-6 text-lg">
+                    "Dando vida a bodas con personalidad."
+                </p>
+                <div class="space-y-6 text-stone-500 text-sm md:text-base mb-8">
+                    <p>Somos Javier y Andrea, el alma creativa y organizativa detrás de Go Wedding Planner. Nuestra trayectoria comenzó hace más de una década, fusionando mundos aparentemente distintos pero complementarios: la arquitectura efímera y la gestión de grandes eventos corporativos.</p>
+                    <p>Tras años diseñando eventos únicos en la capital, expandimos nuestra visión a <strong>toda Cataluña</strong>. Nos dimos cuenta de que el sector nupcial necesitaba un enfoque fresco, lejos de los paquetes estandarizados y las bodas "en serie". Creemos firmemente que cada pareja tiene una historia única que merece ser contada a través de cada detalle de su gran día, especialmente en los maravillosos entornos que ofrece el Mediterráneo.</p>
+                    <p>Nuestro enfoque es integral y profundamente personal. No solo organizamos proveedores; diseñamos experiencias. Desde la selección cromática de las flores hasta la iluminación perfecta en una masía a la luz de las velas, cada decisión se toma pensando en vosotros. Fusionamos la precisión suiza en la logística con el buen gusto estético para crear bodas impecables.</p>
+                    <p>Hemos tenido el honor de acompañar a más de 50 parejas en este viaje, transformando espacios en <strong>Sant Cugat, Sitges, masías históricas en Cataluña y destinos soñados</strong>. Nuestra promesa es simple: vosotros soñad, nosotros lo hacemos realidad, cuidando cada segundo para que vuestro único trabajo sea celebrar el amor con total tranquilidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLLABORATION FORM -->
+    <section id="colabora" class="py-16 md:py-20 bg-stone-50 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl italic mb-6 text-stone-800">¿Quieres Colaborar?</h2>
+            <p class="text-stone-500 mb-12">Siempre buscamos nuevos talentos y proveedores apasionados en Cataluña.</p>
+
+            <div class="bg-white p-8 md:p-12 shadow-xl text-left">
+                <iframe name="collab_iframe" id="collab_iframe" style="display:none;" onload="if(collabSubmitted) {showCollabSuccess();}"></iframe>
+                <form action="https://docs.google.com/forms/d/e/1FAIpQLScVge6HL6zNJGBE5C_3BkVjN0BsNVdol-g7LTaBS4hDHrmBHg/formResponse" method="post" target="collab_iframe" onsubmit="collabSubmitted=true;" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" name="entry.635906777" placeholder="NOMBRE / EMPRESA" required class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition">
+                        <input type="tel" name="entry.1962925771" placeholder="TELÉFONO" required class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition">
+                    </div>
+
+                    <input type="text" name="entry.839730555" placeholder="TIPO DE SERVICIO (FOTO, FLORISTA, ETC)" required class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition">
+
+                    <textarea name="entry.280658271" placeholder="CUÉNTANOS MÁS SOBRE TI..." required rows="3" class="w-full border-b border-stone-300 py-3 text-xs uppercase tracking-widest outline-none focus:border-rose-500 transition"></textarea>
+
+                    <div class="flex items-start gap-3 pt-2">
+                        <input type="checkbox" id="collab-privacy" required class="mt-1 accent-rose-500 shrink-0">
+                        <label for="collab-privacy" class="text-[9px] text-stone-500 uppercase tracking-tighter leading-tight">
+                            Acepto la cesión de los datos para que Go Wedding Planner Cataluña se ponga en contacto conmigo.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="bg-stone-900 text-white px-8 py-3 uppercase text-[10px] tracking-widest font-bold hover:bg-rose-500 transition w-full md:w-auto">Enviar Propuesta</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-black text-center border-t border-stone-800">
+        <div class="text-[10px] uppercase tracking-widest text-stone-400 mb-4">
+            © 2026 Go Wedding Planner Cataluña. Todos los derechos reservados.
+        </div>
+        <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6 text-[10px] uppercase tracking-widest text-stone-500 items-center">
+            <a href="/aviso-legal" class="hover:text-white transition">Aviso Legal</a>
+            <a href="/politica-privacidad" class="hover:text-white transition">Política de Privacidad</a>
+            <a href="/politica-cookies" class="hover:text-white transition">Política de Cookies</a>
+        </div>
+    </footer>
+
+    <script>
+        let collabSubmitted = false;
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+        function showCollabSuccess() {
+            document.getElementById('collab-modal').style.display = 'flex';
+            document.querySelector('#colabora form').reset();
+        }
+        function closeCollabModal() {
+            document.getElementById('collab-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

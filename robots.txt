@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://catalunya.goweddingplanner.com/sitemap.xml
